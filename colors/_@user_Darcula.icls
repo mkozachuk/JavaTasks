@@ -1,0 +1,13 @@
+<scheme name="_@user_Darcula" version="142" parent_scheme="Darcula">
+  <metaInfo>
+    <property name="created">2019-10-03T13:30:13</property>
+    <property name="ide">idea</property>
+    <property name="ideVersion">2019.1.3.0.0</property>
+    <property name="modified">2019-10-03T14:13:22</property>
+    <property name="originalScheme">Darcula</property>
+  </metaInfo>
+  <colors>
+    <option name="FILESTATUS_IDEA_FILESTATUS_IGNORED" value="857f" />
+    <option name="FILESTATUS_SWITCHED" value="b9bb87" />
+  </colors>
+</scheme>
