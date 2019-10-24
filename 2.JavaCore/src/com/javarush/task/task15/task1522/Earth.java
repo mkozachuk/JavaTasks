@@ -10,4 +10,4 @@ public class Earth implements Planet {
         return instance;
     }
 }
-//
+

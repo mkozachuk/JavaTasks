@@ -4,26 +4,32 @@ package com.javarush.task.task19.task1908;
 Выделяем числа
 */
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-/*
+import java.io.*;
+import java.util.ArrayList;
+
 public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String first = reader.readLine();
-        String second = reader.readLine();
+        String fileName1 = reader.readLine();
+        String fileName2 = reader.readLine();
         reader.close();
-        BufferedReader reader1 = new BufferedReader(new FileReader(first));
-        String text = reader1.read();
+
+        BufferedReader fileReader = new BufferedReader(new FileReader(fileName1));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName2));
+
+        String read = fileReader.readLine();
+        String res = "";
+        fileReader.close();
+
+        for (String str: read.split("//W")){
+            res = res + Integer.parseInt(read) + " ";
+        }
+
+        bufferedWriter.write(res);
+        bufferedWriter.flush();
+        bufferedWriter.close();
 
 
-*/
 
-
-
-
-
-
-
+    }
+}

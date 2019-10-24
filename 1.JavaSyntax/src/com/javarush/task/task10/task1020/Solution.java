@@ -2,6 +2,7 @@ package com.javarush.task.task10.task1020;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 /* 
 Задача по алгоритмам
@@ -22,6 +23,11 @@ public class Solution {
     }
 
     public static void sort(int[] array) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i < array.length; i++) {
+            list.add(array[i]);
+        }
+
         //напишите тут ваш код
     }
 }

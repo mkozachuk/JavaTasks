@@ -12,35 +12,63 @@ public class Solution {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+        String grandPaName = reader.readLine();
+        Cat catGrandPa = new Cat(grandPaName);
+
+        String grandMaName = reader.readLine();
+        Cat catGrandMa = new Cat(grandMaName);
+
+        String fatherName = reader.readLine();
+        Cat catFather = new Cat(fatherName, null, catGrandPa);
+
         String motherName = reader.readLine();
-        Cat catMother = new Cat(motherName);
+        Cat catMother = new Cat(motherName, catGrandMa, null);
 
         String daughterName = reader.readLine();
-        Cat catDaughter = new Cat(daughterName, catMother);
+        Cat catDaughter = new Cat(daughterName, catMother, catFather);
 
+        String sonName = reader.readLine();
+        Cat catSon= new Cat(sonName, catMother, catFather);
+
+        System.out.println(catGrandPa);
+        System.out.println(catGrandMa);
+        System.out.println(catFather);
         System.out.println(catMother);
         System.out.println(catDaughter);
+        System.out.println(catSon);
     }
 
     public static class Cat {
         private String name;
-        private Cat parent;
+        private Cat mother;
+        private Cat father;
 
         Cat(String name) {
             this.name = name;
         }
 
-        Cat(String name, Cat parent) {
+        Cat(String name, Cat mother, Cat father) {
             this.name = name;
-            this.parent = parent;
+            this.mother = mother;
+            this.father = father;
         }
 
         @Override
         public String toString() {
-            if (parent == null)
-                return "The cat's name is " + name + ", no mother ";
+            if (mother == null) {
+                if (father == null)
+                return "The cat's name is " + name + ", no mother" + ", no father";
+                else
+                    return "The cat's name is " + name + ", no mother" + ", father is " + father.name;
+            }
+            else if (father == null) {
+                if (mother == null)
+                    return "The cat's name is " + name + ", no mother" + ", no father";
+                else
+                    return "The cat's name is " + name + ", mother is " + mother.name + ", no father";
+            }
             else
-                return "The cat's name is " + name + ", mother is " + parent.name;
+                return "The cat's name is " + name + ", mother is " + mother.name + ", father is " + father.name;
         }
     }
 

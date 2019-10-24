@@ -2,9 +2,8 @@ package com.javarush.task.task18.task1803;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.util.*;
 
 /* 
 Самые частые байты
@@ -12,14 +11,33 @@ import java.util.ArrayList;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String name = reader.readLine();
-        FileInputStream fileInputStream = new FileInputStream(name);
-        while (fileInputStream.available() > 0){
-            System.out.println("ss");
+        Scanner sc = new Scanner(System.in);
 
+        ArrayList<Integer> myList = new ArrayList<Integer>();
+        ArrayList<Integer> myList2 = new ArrayList<Integer>();
+        String file = sc.nextLine();
+        FileInputStream inputStream = new FileInputStream(file);
+
+        while (inputStream.available() > 0) {
+            myList.add(inputStream.read());
+        }
+        inputStream.close();
+
+        int iterations = 0;
+        for (int i = 0; i < myList.size(); i++) {
+            if (Collections.frequency(myList, myList.get(i)) > iterations) {
+
+                iterations = Collections.frequency(myList, myList.get(i));
+            }
         }
 
-
+        for (int i = 0; i < myList.size(); i++) {
+            if (Collections.frequency(myList, myList.get(i)) == iterations) {
+                if (!myList2.contains(myList.get(i))) {
+                    System.out.print(myList.get(i) + " ");
+                    myList2.add(myList.get(i));
+                }
+            }
+        }
     }
 }

@@ -7,6 +7,7 @@ public class Person {
     private Sex sex;
     private Date birthDate;
 
+
     private Person(String name, Sex sex, Date birthDate) {
         this.name = name;
         this.sex = sex;
@@ -44,4 +45,7 @@ public class Person {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
+
+
 }
